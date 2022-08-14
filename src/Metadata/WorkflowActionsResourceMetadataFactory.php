@@ -51,6 +51,15 @@ class WorkflowActionsResourceMetadataFactory implements ResourceMetadataFactoryI
         $operations = $resourceMetadata->getItemOperations();
         $operations['patch'] = [
             'method' => 'PATCH',
+            'stateless' => null,
+            'input_formats' => [
+                'json' => ['application/merge-patch+json']
+            ],
+            'output_formats' => [
+                'json' => ['application/json'],
+                'jsonld' => ['application/ld+json'],
+                'html' => ['text/html'],
+            ],
             'controller' => DefaultTransitionController::class,
             'input' => ['class' => WorkflowDTO::class, 'name' => 'WorkflowDTO'],
         ];

@@ -72,7 +72,7 @@ class WorkflowNormalizer implements NormalizerInterface, CacheableSupportsMethod
         return $this->decorated->normalize($object, $format, $context);
     }
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = [])
+    public function supportsDenormalization(mixed $data, string $type,?string $format = null, array $context = []): bool
     {
         return $this->decorated->supportsDenormalization($data, $type, $format, $context);
     }

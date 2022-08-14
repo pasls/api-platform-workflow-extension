@@ -70,7 +70,7 @@ class WorkflowPass implements CompilerPassInterface
         $registry = $container->getDefinition('workflow.registry');
         foreach ($registry->getMethodCalls() as $call) {
             [, [$workflowReference, $supportStrategy]] = $call;
-            yield [$container->getDefinition($workflowReference), $supportStrategy];
+            yield [$container->getDefinition((string) $workflowReference), $supportStrategy];
         }
     }
 }

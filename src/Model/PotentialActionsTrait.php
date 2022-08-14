@@ -22,9 +22,6 @@ use Symfony\Component\Serializer\Annotation\Groups;
 trait PotentialActionsTrait
 {
     /**
-     * @var Action[] collection of potential Action, which describes an idealized action in which this thing
-     *               would play an 'object' role
-     *
      * @ApiProperty(
      *     iri="http://schema.org/potentialAction",
      *     readable=true,
@@ -34,17 +31,11 @@ trait PotentialActionsTrait
      */
     private $potentialAction = [];
 
-    /**
-     * @param Action $action
-     */
     public function addPotentialAction(Action $action)
     {
         $this->potentialAction[] = $action;
     }
 
-    /**
-     * @return array
-     */
     public function getPotentialAction(): array
     {
         return $this->potentialAction;

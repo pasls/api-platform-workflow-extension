@@ -14,6 +14,7 @@ namespace Wesnick\WorkflowBundle\EventListener;
 use ApiPlatform\Core\Util\RequestAttributesExtractor;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 /**
  * Listen to API Platform requests, after the ReadListener (priority=4) and DeserializeListener (priority=2)
@@ -39,7 +40,7 @@ class WorkflowOperationListener
     /**
      * @param GetResponseEvent $event
      */
-    public function onKernelRequest(GetResponseEvent $event)
+    public function onKernelRequest(RequestEvent $event)
     {
         $request = $event->getRequest();
         if (!$request->isMethod(Request::METHOD_PATCH)

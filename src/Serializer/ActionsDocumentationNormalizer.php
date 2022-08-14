@@ -36,7 +36,7 @@ class ActionsDocumentationNormalizer implements NormalizerInterface, CacheableSu
         return true;
     }
 
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize($object, $format = null, array $context = []): bool
     {
         // @TODO: review that this is even gets hydra to do anything extra
         $data = $this->decorated->normalize($object, $format, $context);
@@ -53,7 +53,7 @@ class ActionsDocumentationNormalizer implements NormalizerInterface, CacheableSu
         return $data;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization(mixed $data, string $format = null /* , array $context = [] */)
     {
         return $this->decorated->supportsNormalization($data, $format);
     }
