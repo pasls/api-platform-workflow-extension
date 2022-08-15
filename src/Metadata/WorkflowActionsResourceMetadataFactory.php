@@ -44,9 +44,9 @@ class WorkflowActionsResourceMetadataFactory implements ResourceMetadataFactoryI
         // Set the pseudo-group for potentialAction to appear in name collection metadata factories
         $attributes = $resourceMetadata->getAttributes();
         $groups = $attributes['denormalization_context']['groups'] ?? [];
-        if (!in_array('workflowAction:output', $groups, true)) {
-            $attributes['denormalization_context']['groups'][] = 'workflowAction:output';
-        }
+//        if (!in_array('workflowAction:output', $groups, true)) {
+//            $attributes['denormalization_context']['groups'][] = 'workflowAction:output';
+//        }
 
         $operations = $resourceMetadata->getItemOperations();
         $operations['patch'] = [

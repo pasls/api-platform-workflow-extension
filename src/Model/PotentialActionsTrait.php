@@ -13,7 +13,6 @@ namespace Wesnick\WorkflowBundle\Model;
 
 use ApiPlatform\Core\Annotation\ApiProperty;
 use Symfony\Component\Serializer\Annotation\Groups;
-
 /**
  * Trait PotentialActionsTrait.
  *
@@ -21,17 +20,15 @@ use Symfony\Component\Serializer\Annotation\Groups;
  */
 trait PotentialActionsTrait
 {
-    /**
-     * @ApiProperty(
-     *     iri="http://schema.org/potentialAction",
-     *     readable=true,
-     *     writable=false
-     * )
-     * @Groups({"workflowAction:output"})
-     */
-    private $potentialAction = [];
+    #[ApiProperty(
+        readable: true,
+        writable: false,
+        iri: "http://schema.org/potentialAction"
+    )]
+//    #[Groups(['workflowAction:output'])]
+    private array $potentialAction = [];
 
-    public function addPotentialAction(Action $action)
+    public function addPotentialAction(Action $action): void
     {
         $this->potentialAction[] = $action;
     }

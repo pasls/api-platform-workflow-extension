@@ -34,12 +34,12 @@ class WorkflowActionContextBuilder implements SerializerContextBuilderInterface
         $context = $this->decorated->createFromRequest($request, $normalization, $extractedAttributes);
         $resourceClass = $context['resource_class'] ?? null;
 
-        if (is_a($resourceClass, PotentialActionInterface::class, true)
-            && isset($context['groups'])
-            && true === $normalization
-        ) {
-            $context['groups'][] = 'workflowAction:output';
-        }
+//        if (is_a($resourceClass, PotentialActionInterface::class, true)
+//            && isset($context['groups'])
+//            && true === $normalization
+//        ) {
+//            $context['groups'][] = 'workflowAction:output';
+//        }
 
         return $context;
     }
